@@ -10,9 +10,7 @@ class QueriesController < ApplicationController
   # GET /queries/1
   # GET /queries/1.json
   def show
-    @woof = "bork"
-
-    client = Twitter::REST::Client.new do |config|
+client = Twitter::REST::Client.new do |config|
   config.consumer_key        = "MrFwvZUWLSjHMOZbUUTNh6DhV"
   config.consumer_secret     = "YFulSMlkkrOSgsFXumM0afBb9oMJJXj1W2HS98NlzGaxHujSwO"
   config.access_token        = "763403619236446208-PGfCCSNRvmvKbbDLVNdtrMjHKzw7wmB"

@@ -1,28 +1,41 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>hashtag</strong>
   <%= @query.name %>
-  <%= @woof %>
 </p>
 
-<tbody>
+<table class="table dt-responsive nowrap" width="100%" cellspacing="0" id = "queries" >
+  <thead>
+    <tr>
+      <th>IMG</th>
+      <th>Username</th>
+      <th>Says</th>
+      <th>Retweets</th>
+      <th>Faves</th>
+    </tr>
+  </thead>
+  <tbody>
     <% @tweets.each do |tweet| %>
       <tr>
-      <td>IMG: <%= image_tag("#{tweet.user.profile_image_uri(size = :normal)}") %></td>
-      </br>
+        <td>IMG: <%= image_tag("#{tweet.user.profile_image_uri(size = :normal)}") %></td>
         <td>Username: <%= tweet.user.screen_name %></td>
-        </br>
         <td>Says: <%= tweet.text %></td>
-        </br>
         <td>Retweets: <%= tweet.retweet_count %></td>
-        </br>
         <td>Faves: <%= tweet.favorite_count %></td>
-        </br>
-        </br>
-        </br>
       </tr>
     <% end %>
+  </tbody>
+</table>
 
 <%= link_to 'Edit', edit_query_path(@query) %> |
 <%= link_to 'Back', queries_path %>
+
+
+<script >
+    $(document).ready(function() {
+        $('#queries').DataTable( {
+            responsive: true,
+        } );
+    } );
+</script>
