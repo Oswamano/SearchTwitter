@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :queries
   resources :settings
   resources :orders
   resources :locations

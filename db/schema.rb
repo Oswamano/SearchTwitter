@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160503021633) do
+ActiveRecord::Schema.define(version: 20170907234456) do
 
   create_table "orders", force: :cascade do |t|
     t.date     "date_recieved"
@@ -55,6 +55,12 @@ ActiveRecord::Schema.define(version: 20160503021633) do
     t.string   "file1"
     t.string   "file2"
     t.string   "file3"
+  end
+
+  create_table "queries", force: :cascade do |t|
+    t.text     "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "roles", force: :cascade do |t|
