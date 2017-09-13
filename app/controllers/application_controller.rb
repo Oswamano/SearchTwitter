@@ -6,8 +6,8 @@ class ApplicationController < ActionController::Base
         if current_user and current_user.is_admin?
             return true
         else
-            flash[:notice] = "Error!"
-            redirect_to :root
+            flash[:notice] = "Error: You must be signed in to view this page."
+            redirect_to '/landing/index'
         end
   end
   

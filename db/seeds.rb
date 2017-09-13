@@ -7,12 +7,13 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 puts "Seeding Admins"
 
+    user2 = User.create(email: "admin@utilant.com", password: "admin" , password_confirmation: "admin" )
+    user2.add_role :admin
 
     user1 = User.create(email: "mdavidoconnor@gmail.com", password: "matthew123", password_confirmation: "matthew123")
     user1.add_role :admin
 
-    user2 = User.create(email: "aaron.preston827@gmail.com", password: "aaron123" , password_confirmation: "aaron123" )
-    user2.add_role :admin
+
 
 
 

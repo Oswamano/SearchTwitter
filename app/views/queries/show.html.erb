@@ -8,18 +8,18 @@
 <table class="table dt-responsive nowrap" width="100%" cellspacing="0" id = "queries" >
   <thead>
     <tr>
-      <th>Faves</th>
-      <th>IMG</th>
+      <th>Profile Image</th>
       <th>Username</th>
+      <th>Text</th>
       <th>Says</th>
       <th>Retweets</th>
-      <th>Faves</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
     <% @tweets.each do |tweet| %>
       <tr>
-        <td>IMG: <%= image_tag("#{tweet.user.profile_image_uri(size = :normal)}") %></td>
+        <td><%= image_tag("#{tweet.user.profile_image_uri(size = :normal)}") %></td>
         <td>Username: <%= tweet.user.screen_name %></td>
         <td>Says: <%= tweet.text %></td>
         <td>Retweets: <%= tweet.retweet_count %></td>
@@ -42,7 +42,6 @@
     } );
 </script>
 
-<%= raw(@tweet.html) %>
 
 <script>
 window.twttr = (function (d, s, id) {
