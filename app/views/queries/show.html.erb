@@ -8,6 +8,7 @@
 <table class="table dt-responsive nowrap" width="100%" cellspacing="0" id = "queries" >
   <thead>
     <tr>
+      <th>Faves</th>
       <th>IMG</th>
       <th>Username</th>
       <th>Says</th>
@@ -23,6 +24,7 @@
         <td>Says: <%= tweet.text %></td>
         <td>Retweets: <%= tweet.retweet_count %></td>
         <td>Faves: <%= tweet.favorite_count %></td>
+        <td><%= raw((@client.oembed(tweet.id).html)) %></td>
       </tr>
     <% end %>
   </tbody>
@@ -38,4 +40,17 @@
             responsive: true,
         } );
     } );
+</script>
+
+<%= raw(@tweet.html) %>
+
+<script>
+window.twttr = (function (d, s, id) {
+var t, js, fjs = d.getElementsByTagName(s)[0];
+if (d.getElementById(id)) return;
+js = d.createElement(s); js.id = id;
+js.src= "https://platform.twitter.com/widgets.js";
+fjs.parentNode.insertBefore(js, fjs);
+return window.twttr || (t = { _e: [], ready: function (f) { t._e.push(f) } });
+}(document, "script", "twitter-wjs"));
 </script>

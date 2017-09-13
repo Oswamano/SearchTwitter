@@ -10,15 +10,16 @@ class QueriesController < ApplicationController
   # GET /queries/1
   # GET /queries/1.json
   def show
-client = Twitter::REST::Client.new do |config|
-  config.consumer_key        = "MrFwvZUWLSjHMOZbUUTNh6DhV"
-  config.consumer_secret     = "YFulSMlkkrOSgsFXumM0afBb9oMJJXj1W2HS98NlzGaxHujSwO"
-  config.access_token        = "763403619236446208-PGfCCSNRvmvKbbDLVNdtrMjHKzw7wmB"
-  config.access_token_secret = "aKwhG67BWl7H5mnRg2q6IX2uymFV7ew2nkaJaj7lff21A"
-end
+    @client = Twitter::REST::Client.new do |config|
+      config.consumer_key        = "MrFwvZUWLSjHMOZbUUTNh6DhV"
+      config.consumer_secret     = "YFulSMlkkrOSgsFXumM0afBb9oMJJXj1W2HS98NlzGaxHujSwO"
+      config.access_token        = "763403619236446208-PGfCCSNRvmvKbbDLVNdtrMjHKzw7wmB"
+      config.access_token_secret = "aKwhG67BWl7H5mnRg2q6IX2uymFV7ew2nkaJaj7lff21A"
+  end
+  @tweet = @client.oembed('527501479142109184')
 
 name = @query.name
-@tweets = client.search("#{name} -rt", :result_type => "popular")
+@tweets = @client.search("#{name} -rt", :result_type => "popular")
 @woof = "bork"
   end
 

@@ -30,14 +30,9 @@
                 
              
               
-                <li class="<%= 'active' if current_page?('/orders') %>">
-                    <%= link_to "/orders" do %>      
-                        <i class="fa fa-file-code-o"></i> <span class="nav-label">Orders</span>
-                    <%end%>
-                </li>
-                <li class="<%= 'active' if current_page?('/settings') %>">
-                    <%= link_to "/settings" do %>      
-                        <i class="fa fa-cogs"></i> <span class="nav-label">Settings</span>
+                <li class="<%= 'active' if current_page?('/queries') %>">
+                    <%= link_to "/queries" do %>      
+                        <i class="fa fa-file-code-o"></i> <span class="nav-label">Search Hashtags</span>
                     <%end%>
                 </li>
             <%end%>
