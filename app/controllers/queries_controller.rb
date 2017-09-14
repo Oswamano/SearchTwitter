@@ -19,10 +19,8 @@ class QueriesController < ApplicationController
       config.access_token        = "763403619236446208-PGfCCSNRvmvKbbDLVNdtrMjHKzw7wmB"
       config.access_token_secret = "aKwhG67BWl7H5mnRg2q6IX2uymFV7ew2nkaJaj7lff21A"
     end
-    @tweet = @client.oembed('527501479142109184')
-
     name = @query.name
-    @tweets = @client.search("#{name} -rt", :result_type => "popular")
+    @tweets ||= @client.search("#{name} -rt", :result_type => "popular")
   end
 
   # GET /queries/new
